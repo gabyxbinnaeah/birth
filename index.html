@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css" type="css/text">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 rounded-pill" style="text-align: center;height: 40px;background-color: rgba(0, 128, 0, 0.342);"><h2>Name Assignment based on DOB and Gender</h2></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-2">
+                
+            </div>
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-title bg-light" style="padding-left: 50px;text-align: center;"><h5>Week Day Calculator</h5> </div>
+                    <div class="card-body" style="">
+                      <form id="data">
+
+                        <!-- century -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="cc">Century</label>
+                            <input type="integer" id="form5Example1" class="form-control" placeholder="like 1996 enter 19" required/>
+                        </div>
+                      
+                        <!-- year digit -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="yy">Year Digit</label>
+                            <input type="integer" id="form5Example2" class="form-control" placeholder="like 1996 enter 96" required/>
+                        </div>
+                        <!--month-->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="mm" >Month</label>
+                            <input type="integer" id="form5Example3" class="form-control" placeholder="enter months eg jan is 1" required/>
+                        </div>
+                        <!--date-->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="dd">Date</label>
+                            <input type="integer" id="form5Example4" class="form-control" placeholder="enter date e.g 25" required/>
+                        </div>
+                        <!--sex radio button-->
+                        <div class="form-outline mb-4">
+                            <label for="exampleFormControlSelect1">Gender</label>
+                            <select class="form-control" value="gender" id="gridRadios1">
+                              <option>male </option>
+                              <option>female</option>
+                            </select>
+                          </div>
+                        <!--
+                        <fieldset class="form-group">
+                            <div class="row">
+                              <legend class="col-form-label col-sm-2 pt-0">sex</legend>
+                              <div class="col-sm-10">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1" checked>
+                                  <label class="form-check-label" for="gridRadios1">
+                                    Male
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                  <label class="form-check-label" for="gridRadios2">
+                                    Female
+                                  </label>
+                                </div>
+                
+                              </div>
+                            </div>
+                          </fieldset>-->
+                      
+                        
+                      
+                        <!-- Submit button -->
+                        <div class="">
+                            <button type="submit" value="submit" name="submit" class="btn btn-success btn-block mb-4">Update</button>
+                            <button type="button" value="Reset" onclick="reloadPage()"  class="btn btn-success btn-block mb-4">Reset</button>
+                        </div>
+                        
+                      </form>
+                    </div>
+                  </div>
+                  <hr class="calc-line" style="border-top: 4px solid lightgreen;">
+            </div>
+            <div class="col-md-3">
+                <img src="gclock.jpeg" alt="..." class="rounded-circle">
+                <hr class="clock-line" style="border-top: 4px solid lightgreen;">
+            </div>
+        </div>
+    
+       
+        <div class="empt" style="height: 30px;"></div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-lg-7">
+                <div class="card">
+                    <div class="card-title bg-light" style="text-align: center;"><h6>Ghanian weekly Names</h6></div>
+                    <div class="card-body" style="height: 150px;text-align: center;">
+                    <p id="display"></p>
+                    <table class="table table-stripped mt-5">
+                        <thead>
+                            <tr>
+                                <th>Century</th>
+                                <th>Year Digit</th>
+                                <th>Month</th>
+                                <th>Date</th>
+                                <th>Sex</th>
+                            </tr>
+                        </thead>
+                        <tbody ><tr id="day-list"></tr></tbody>
+                    </table>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="empt" style="height: 10px;"></div>
+        <footer style="background-color: rgba(0, 128, 0, 0.342);height: 70px;text-align: center;">
+            <p>Designed by:@gabyxSolutions</p>
+            <p>Contacts:0791563569</p>
+        </footer>
+
+    </div>
+    <script>
+        var cc; 
+            var yy; 
+            var mm;
+            var dd; 
+            var gender;
+
+            var form =document.getElementById("data");
+            form.addEventListener( "submit",function(){
+                event.preventDefault();
+
+                 cc =document.getElementById("form5Example1").value;
+                 yy =document.getElementById("form5Example2").value;
+                 mm =document.getElementById("form5Example3").value;
+                 dd =document.getElementById("form5Example4").value;
+                 gender=document.getElementById("gridRadios1").value;
+
+              populateData();
+              console.log(weekDay())
+            });
+
+
+            /* Populate Data */
+         function populateData(){
+                weeklyName();
+
+                row = document.getElementById("day-list");
+                row.innerHTML = `
+                    <td>${cc}</td>
+                    <td>${yy}</td>
+                    <td>${mm}</td>
+                    <td>${dd}</td>
+                    <td>${gender}</td>
+                    
+                `;   
+        }
+        function reloadPage(){
+            console.log("test")
+            window.location.reload();
+        }
+        
+
+
+
+        function weeklyName(){
+                // var days=["Sunday= 0","Monday=1","Tuesday=2","wednesday=3","Thursday=4","Friday=5","Saturday=6"];
+                var male=["Kwasi","Kwadwo","Kwabena","Kwaku","Yaw","Kofi","Kwame"]
+                var female=["Akosua","Adwoa","Abenaa","Akua","Yaa","Afua","Ama"]
+                if(Math.ceil(weekDay())==0 && gender== "male" ){
+                    document.getElementById("display").innerHTML ="Your name is: "+male[0];
+                }else if(Math.ceil(weekDay())==0 && gender=="female"){
+                    document.getElementById("display").innerHTML ="Your name is: "+female[0];
+                } else if(Math.ceil(weekDay())==1 && gender== "male"){
+                    document.getElementById("display").innerHTML ="Your name is: "+male[1];
+                }else if(Math.ceil(weekDay())==1 && gender== "female"){
+                    document.getElementById("display").innerHTML ="Your name is: "+female[1];
+                }else if(Math.ceil(weekDay())==2 && gender== "male"){
+                    document.getElementById("display").innerHTML ="Your name is: "+male[2];
+                }else if(Math.ceil(weekDay())==2 && gender== "female"){
+                    document.getElementById("display").innerHTML ="Your name is: "+female[2];
+                }else if(Math.ceil(weekDay())==3 && gender== "male"){
+                    document.getElementById("display").innerHTML ="Your name is: "+male[3];
+                }else if(Math.ceil(weekDay())==3 && gender== "female"){
+                    document.getElementById("display").innerHTML ="Your name is: "+female[3];
+                }else if(Math.ceil(weekDay())==4 && gender== "male"){
+                    document.getElementById("display").innerHTML ="Your name is: "+male[4];
+                }else if(Math.ceil(weekDay())==4 && gender== "female"){
+                    document.getElementById("display").innerHTML ="Your name is: "+female[4];
+                }else if(Math.ceil(weekDay())==5 && gender== "male"){
+                    document.getElementById("display").innerHTML ="Your name is: "+male[5];
+                }else if(Math.ceil(weekDay())==5 && gender== "female"){
+                    document.getElementById("display").innerHTML ="Your name is: "+female[5];
+                }else if(Math.ceil(weekDay())==6 && gender== "male"){
+                    document.getElementById("display").innerHTML ="Your name is: "+male[6];
+                }else {
+                    document.getElementById("display").innerHTML ="Your name is: "+female[6];
+                }
+        }
+    </script>
+</body>
+</html>
