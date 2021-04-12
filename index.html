@@ -148,6 +148,23 @@
               console.log(weekDay())
             });
 
+
+            /* Populate Data */
+         function populateData(){
+                weeklyName();
+
+                row = document.getElementById("day-list");
+                row.innerHTML = `
+                    <td>${cc}</td>
+                    <td>${yy}</td>
+                    <td>${mm}</td>
+                    <td>${dd}</td>
+                    <td>${gender}</td>
+                    
+                `;
+            
+        }
+
     </script>
 </body>
 </html>
