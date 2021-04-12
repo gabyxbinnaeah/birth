@@ -20,56 +20,111 @@
             </div>
             <div class="col-md-7">
                 <div class="card">
-                    <div class="card-title bg-light" style="padding-left: 50px;text-align: center;">
-                        <h5>Week Day Calculator</h5>
+                    <div class="card-title bg-light" style="padding-left: 50px;text-align: center;"><h5>Week Day Calculator</h5> </div>
+                    <div class="card-body" style="">
+                      <form id="data">
+
+                        <!-- century -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="cc">Century</label>
+                            <input type="integer" id="form5Example1" class="form-control" placeholder="like 1996 enter 19" required/>
+                        </div>
+                      
+                        <!-- year digit -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="yy">Year Digit</label>
+                            <input type="integer" id="form5Example2" class="form-control" placeholder="like 1996 enter 96" required/>
+                        </div>
+                        <!--month-->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="mm" >Month</label>
+                            <input type="integer" id="form5Example3" class="form-control" placeholder="enter months eg jan is 1" required/>
+                        </div>
+                        <!--date-->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="dd">Date</label>
+                            <input type="integer" id="form5Example4" class="form-control" placeholder="enter date e.g 25" required/>
+                        </div>
+                        <!--sex radio button-->
+                        <div class="form-outline mb-4">
+                            <label for="exampleFormControlSelect1">Gender</label>
+                            <select class="form-control" value="gender" id="gridRadios1">
+                              <option>male </option>
+                              <option>female</option>
+                            </select>
+                          </div>
+                        <!--
+                        <fieldset class="form-group">
+                            <div class="row">
+                              <legend class="col-form-label col-sm-2 pt-0">sex</legend>
+                              <div class="col-sm-10">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1" checked>
+                                  <label class="form-check-label" for="gridRadios1">
+                                    Male
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                                  <label class="form-check-label" for="gridRadios2">
+                                    Female
+                                  </label>
+                                </div>
+                
+                              </div>
+                            </div>
+                          </fieldset>-->
+                      
+                        
+                      
+                        <!-- Submit button -->
+                        <div class="">
+                            <button type="submit" value="submit" name="submit" class="btn btn-success btn-block mb-4">Update</button>
+                            <button type="button" value="Reset" onclick="reloadPage()"  class="btn btn-success btn-block mb-4">Reset</button>
+                        </div>
+                        
+                      </form>
                     </div>
-                    <div class="card-body">
-                        <form  id="data">
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="cc">Century</label>
-                                <input type="integer" id="form5Example1" class="form-control" placeholder="like 1996 enter 19" required/>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="yy">Year Digit</label>
-                                <input type="integer" id="form5Example2" class="form-control" placeholder="like 1996 enter 96" required/>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="mm" >Month</label>
-                                <input type="integer" id="form5Example3" class="form-control" placeholder="enter months eg jan is 1" required/>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="dd">Date</label>
-                                <input type="integer" id="form5Example4" class="form-control" placeholder="enter date e.g 25" required/>
-                            </div>
-                            <div class="form-outline mb-4">
-                               <label for="exampleFormControlSelect1">Gender</label>
-                                    <select class="form-control" value="gender" id="gridRadios1">
-                                        <option>male </option>
-                                        <option>female</option>
-                                    </select>
-                            </div>
-                            <div class="">
-                                <button type="submit" value="submit"  class="btn btn-success btn-block mb-4">Update</button>
-                                <button type="button" value="Reset"  class="btn btn-success btn-block mb-4">Reset</button>
-                    
-                            </div>
-                            
-
-                        </form>
-
-                    </div>
-
-                </div>
-                <hr class="calc-line" style="border-top: 4px solid lightgreen;">
-
+                  </div>
+                  <hr class="calc-line" style="border-top: 4px solid lightgreen;">
             </div>
             <div class="col-md-3">
-                <img src="images/gclock.jpeg" alt="..." class="rounded-circle">
+                <img src="gclock.jpeg" alt="..." class="rounded-circle">
                 <hr class="clock-line" style="border-top: 4px solid lightgreen;">
             </div>
-
         </div>
-        
+    
+       
+        <div class="empt" style="height: 30px;"></div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-lg-7">
+                <div class="card">
+                    <div class="card-title bg-light" style="text-align: center;"><h6>Ghanian weekly Names</h6></div>
+                    <div class="card-body" style="height: 150px;text-align: center;">
+                    <p id="display"></p>
+                    <table class="table table-stripped mt-5">
+                        <thead>
+                            <tr>
+                                <th>Century</th>
+                                <th>Year Digit</th>
+                                <th>Month</th>
+                                <th>Date</th>
+                                <th>Sex</th>
+                            </tr>
+                        </thead>
+                        <tbody ><tr id="day-list"></tr></tbody>
+                    </table>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="empt" style="height: 10px;"></div>
+        <footer style="background-color: rgba(0, 128, 0, 0.342);height: 70px;text-align: center;">
+            <p>Designed by:@gabyxSolutions</p>
+            <p>Contacts:0791563569</p>
+        </footer>
 
     </div>
 </body>
