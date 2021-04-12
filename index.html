@@ -134,6 +134,20 @@
             var dd; 
             var gender;
 
+            var form =document.getElementById("data");
+            form.addEventListener( "submit",function(){
+                event.preventDefault();
+
+                 cc =document.getElementById("form5Example1").value;
+                 yy =document.getElementById("form5Example2").value;
+                 mm =document.getElementById("form5Example3").value;
+                 dd =document.getElementById("form5Example4").value;
+                 gender=document.getElementById("gridRadios1").value;
+
+              populateData();
+              console.log(weekDay())
+            });
+
     </script>
 </body>
 </html>
