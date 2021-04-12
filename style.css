@@ -1,3 +1,6 @@
 body{
     background-color: white;
 }
+#title-calculator{
+      text-transform: uppercase;
+}
